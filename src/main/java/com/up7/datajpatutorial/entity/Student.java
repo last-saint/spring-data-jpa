@@ -47,22 +47,7 @@ public class Student {
     )
     private String studentEmail;
 
-    @Column(
-            name = "guardian_name",
-            nullable = false
-    )
-    private String guardianName;
-
-    @Column(
-            name = "guardian_email",
-            nullable = false
-    )
-    private String guardianEmail;
-
-    @Column(
-            name = "guardian_mobile_num",
-            nullable = false
-    )
-    private String guardianMobileNumber;
+    @Embedded
+    private Guardian guardian;
 
 }
