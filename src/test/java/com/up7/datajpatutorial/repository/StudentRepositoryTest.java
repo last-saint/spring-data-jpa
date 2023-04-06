@@ -36,4 +36,30 @@ class StudentRepositoryTest {
         List<Student> studentList = studentRepository.findAll();
         System.out.println("students list = "+studentList);
     }
+    @Test
+    public void printAllStudents_based_on_first_name(){
+        String firstName = "jk";
+        List<Student> studentList = studentRepository.findByStudentFirstName(firstName);
+        System.out.println("students list with first name "+firstName+" = "+studentList);
+    }
+
+    @Test
+    public void printAllStudents_based_on_a_substring_which_is_part_of_student_first_name(){
+        String subString = "a";
+        List<Student> studentList = studentRepository.findByStudentFirstNameContaining(subString);
+        System.out.println("students list with given substring : "+subString+" , containing in a studentFirstName = "+studentList);
+    }
+
+    @Test
+    public void printAllStudents_with_last_name_not_null(){
+        List<Student> studentList = studentRepository.findByStudentLastNameNotNull();
+        System.out.println("Students with last name not null = "+studentList);
+    }
+
+    @Test
+    public void printAllStudents_based_on_guardian_name(){
+        String guardianName = "def";
+        List<Student> studentList = studentRepository.findByGuardianGuardianName(guardianName);
+        System.out.println("students with guardian name = "+guardianName+" are = "+studentList);
+    }
 }
